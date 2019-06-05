@@ -1,6 +1,6 @@
 // Characters
 /*
-mrGreen
+const mrGreen = 
 first_name:   Jacob
 last_name:    Green
 color:        green
@@ -9,7 +9,7 @@ age:          45
 image:        https://pbs.twimg.com/profile_images/506787499331428352/65jTv2uC.jpeg
 occupation:   Entrepreneur
 
-drOrchid
+const drOrchid = 
 first_name:   Doctor
 last_name:    Orchid
 color:        white
@@ -18,7 +18,7 @@ age:          26
 image:        http://www.radiotimes.com/uploads/images/Original/111967.jpg
 ocupation:    Scientist
 
-profPlum
+const profPlum = 
 first_name:   Victor
 last_name:    Plum
 color:        purple
@@ -27,7 +27,7 @@ age:          22
 image:        https://metrouk2.files.wordpress.com/2016/07/professor-plum.jpg
 occupation:   Designer
 
-missScarlet
+const missScarlet = 
 first_name:   Kasandra
 last_name:    Scarlet
 color:        red
@@ -36,7 +36,7 @@ age:          31
 image:        https://metrouk2.files.wordpress.com/2016/07/miss-scarlett.jpg
 occupation:   Actor
 
-mrsPeacock
+const mrsPeacock = 
 first_name:   Eleanor
 last_name:    Peacock
 color:        blue
@@ -45,7 +45,7 @@ age:          36
 image:        https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg
 occupation:   Socialité
 
-mrMustard
+const mrMustard = 
 first_name:   Jack
 last_name:    Mustard
 color:        yellow
@@ -92,3 +92,25 @@ var roomsArray = [];
 
 // Weapons Collection
 var weaponsArray = [];
+
+function randomSelector(arr) {
+  const randomIdx = Math.floor(Math.random() * arr.length);
+  return arr(randomIdx);
+}
+
+function pickMystery() {
+  const mysteryEnvelope = {
+    suspect: randomSelector(charactersArray),
+    weapon: randomSelector(weaponsArray),
+    room: randomSelector(roomsArray)
+  };
+}
+
+function revealMystery(mysteryEnvelope) {
+  const first_name = mysteryEnvelope.suspect.first_name;
+  const last_name = mysteryEnvelope.suspect.last_name;
+  const weapon = mysteryEnvelope.weapon.name;
+  const room = mysteryEnvelope.room.name;
+
+  return `${first_name} ${last_name} killed Mr. Boddy using ${weapon} in the ${room}!`;
+}
